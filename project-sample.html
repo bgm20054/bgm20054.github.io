@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROJECT 000 · SAMPLE</title>
+<style>
+  :root{--navy:#1a3044;--navy2:#132537;--bluegray:#8ca9bb;--ice:#8bd3e8;--soft:#c5d4de;--bg:#0b1521;--paper:#142537;--line:#30495d;--mute:#9db1c0;--warn:#E8B86D;--ok:#63D8A6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(ellipse at 80% 0%,#1a3b503d,transparent 38%),linear-gradient(140deg,#09131e,#112131 55%,#0a1521);color:#edf5fa;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"Bahnschrift","DIN Alternate","Segoe UI",sans-serif;letter-spacing:.18em;text-transform:uppercase}
+  .wrap{max-width:1040px;margin:0 auto;padding:24px 16px 40px}
+  .ph{color:var(--mute)}
+
+  .hero{background:linear-gradient(135deg,#193149,#102031);border:1px solid var(--line);color:#fff;border-radius:18px;padding:26px 30px 22px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(82,106,128,.12) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(82,106,128,.12) 1px,transparent 1px) 0 0/40px 40px}
+  .hero>*{position:relative}
+  .top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid rgba(82,106,128,.7);font-size:11px;color:var(--ice);position:relative}
+  .top:after{content:"";position:absolute;left:0;bottom:-1px;width:90px;height:2px;background:var(--ice)}
+  .sample{border:1px solid var(--warn);color:var(--warn);padding:3px 10px;border-radius:4px;font-size:10px}
+  .hero .file{color:var(--ice);font-size:12px;margin-top:26px}
+  .hero h1{font-size:clamp(34px,6vw,58px);line-height:1.15;margin:6px 0 8px;font-weight:800}
+  .hero .meta{color:var(--soft);font-size:15px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .tag{font-size:10px;border:1px solid rgba(141,214,232,.5);color:var(--ice);padding:4px 10px;border-radius:4px}
+  .tag.g{border-color:var(--bluegray);color:var(--soft)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+  .stat{background:var(--navy2);border:1px solid rgba(82,106,128,.6);border-radius:10px;padding:12px 14px}
+  .stat .k{color:var(--ice);font-size:9px}
+  .stat .v{font-size:15px;font-weight:700;margin-top:2px}
+  .visual{margin-top:14px;border:1px dashed rgba(141,214,232,.4);border-radius:12px;height:200px;display:flex;align-items:center;justify-content:center;color:var(--bluegray);font-size:11px;text-align:center}
+
+  section{margin-top:40px}
+  .sh{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .sh .no{font-family:"Bahnschrift","Segoe UI",sans-serif;font-size:28px;font-weight:700;line-height:1}
+  .sh .no span{color:var(--ice)}
+  .sh .tt{font-family:"Bahnschrift","Segoe UI",sans-serif;font-size:19px;font-weight:700;letter-spacing:.14em}
+  .sh .bar{flex:1;height:1px;background:var(--line);position:relative}
+  .sh .bar:after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;background:var(--ice)}
+
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+  .label{color:var(--bluegray);font-size:10px;margin-bottom:4px}
+  .rows{display:grid;grid-template-columns:150px 1fr}
+  .rows>div{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .rows>div:nth-last-child(-n+2){border-bottom:0}
+  .rows .k{color:var(--bluegray);font-size:11px;padding-top:14px}
+  .note{background:var(--navy);border:1px solid #8bd3e83d;color:#fff;border-radius:12px;padding:14px 20px;font-size:14px;margin-bottom:12px;display:flex;gap:12px;align-items:center}
+  .note b{color:var(--ice);font-size:10px}
+  .contrib{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .contrib .panel h4{font-size:15px;margin-bottom:4px}
+  .contrib .panel p{font-size:13px}
+  .bar-in{display:flex;height:8px;border-radius:2px;overflow:hidden;margin-top:10px;background:var(--line)}
+  .bar-in i{background:var(--navy)}
+
+  .case{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .step{padding:20px 20px 22px;border-right:1px solid var(--line);position:relative}
+  .step:last-child{border-right:0}
+  .step .n{font-family:"Bahnschrift","Segoe UI",sans-serif;font-size:11px;letter-spacing:.18em;color:var(--bluegray)}
+  .step h4{font-family:"Bahnschrift","Segoe UI",sans-serif;font-size:18px;letter-spacing:.1em;margin:4px 0 10px}
+  .step p{font-size:13px}
+  .step:after{content:"";position:absolute;left:20px;top:0;width:30px;height:3px;background:var(--bluegray)}
+  .step.s3:after,.step.s4:after{background:var(--ice)}
+  .step.s4{background:var(--navy);color:#fff}
+  .step.s4 .n{color:var(--ice)} .step.s4 p{color:var(--soft)}
+  .flow{margin-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .node{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13px}
+  .node.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .arrow{color:var(--ice);font-weight:700}
+
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .dcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;border-top:3px solid var(--ice)}
+  .dcard .fid{font-family:"Bahnschrift","Segoe UI",sans-serif;font-weight:700;letter-spacing:.1em}
+  .dcard p{font-size:13px;color:var(--mute);margin-top:4px}
+  .docinfo{background:var(--navy);color:#fff;border-radius:12px;padding:14px 20px;margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .docinfo .label{color:var(--ice)}
+
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14px}
+  th{background:var(--navy);color:var(--ice);font-family:"Bahnschrift","Segoe UI",sans-serif;letter-spacing:.14em;font-size:10px;text-align:left;padding:10px 16px;font-weight:400}
+  td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:700;white-space:nowrap;width:130px}
+
+  .retro{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .retro .panel{border-left:4px solid #527c94}
+  .retro .panel.i{border-left-color:var(--ice)}
+  .retro p{font-size:14px}
+  .end{display:flex;justify-content:space-between;color:var(--bluegray);font-size:10px;margin-top:34px;padding-top:14px;border-top:1px solid var(--line)}
+
+  @media (max-width:760px){
+    .stats{grid-template-columns:1fr 1fr}
+    .case,.docs,.contrib,.retro,.docinfo{grid-template-columns:1fr}
+    .step{border-right:0;border-bottom:1px solid var(--line)}
+    .rows{grid-template-columns:1fr}.rows .k{padding-bottom:0;border-bottom:0!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="top mono"><span>Project Archive / File 000</span><span class="sample mono">Sample · 작성 예시</span></div>
+    <div class="file mono">Project 000</div>
+    <h1>[프로젝트명]</h1>
+    <div class="meta">[게임 장르] · [제작 기간] · [팀 규모]</div>
+    <div class="tags">
+      <span class="tag mono">System Design</span><span class="tag mono">Content Design</span><span class="tag g mono">Team Project</span><span class="tag g mono">[Status]</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k mono">Genre</div><div class="v">[장르]</div></div>
+      <div class="stat"><div class="k mono">Platform</div><div class="v">[PC · 모바일]</div></div>
+      <div class="stat"><div class="k mono">Period</div><div class="v">[YYYY.MM – MM]</div></div>
+      <div class="stat"><div class="k mono">Team</div><div class="v">[인원 · 구성]</div></div>
+    </div>
+    <div class="visual mono">Key Visual · Play GIF · Video<br>대표 이미지를 넣는 자리</div>
+  </header>
+
+  <section>
+    <div class="sh"><div class="no">01<span>.</span></div><div class="tt">PROJECT OVERVIEW</div><div class="bar"></div></div>
+    <div class="panel rows">
+      <div class="k mono">Introduction</div><div>프로젝트를 한두 문장으로 소개합니다. <span class="ph">예) 짧은 판단과 빠른 반응을 요구하는 [장르] 게임입니다.</span></div>
+      <div class="k mono">Core Concept</div><div>플레이어가 느낄 핵심 재미를 한 줄로 적습니다. <span class="ph">예) "위험을 감수할수록 보상이 커진다"</span></div>
+      <div class="k mono">Target</div><div class="ph">[목표 플레이어층 · 플레이 타임]</div>
+      <div class="k mono">Goal</div><div>이 프로젝트로 검증하려던 것을 적습니다. <span class="ph">예) 전투 템포를 유지하면서 선택지를 늘릴 수 있는가</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><div class="no">02<span>.</span></div><div class="tt">MY CONTRIBUTION</div><div class="bar"></div></div>
+    <div class="note"><b class="mono">Rule</b>팀 프로젝트는 전체 게임을 설명하되, 본인이 실제로 담당한 범위만 적습니다.</div>
+    <div class="contrib">
+      <div class="panel"><div class="label mono">Role</div><h4>[담당 업무]</h4><p class="ph">예) 전투 시스템 기획, 몬스터 데이터 테이블 작성</p></div>
+      <div class="panel"><div class="label mono">Owned System</div><h4>[직접 기획한 시스템]</h4><p class="ph">예) 스킬 쿨다운 구조, 보상 테이블</p></div>
+      <div class="panel"><div class="label mono">Collaboration</div><h4>[협업한 직군]</h4><p class="ph">예) 프로그래머 2명과 데이터 구조 협의, 아트와 UI 피드백</p></div>
+      <div class="panel"><div class="label mono">Implementation</div><h4>[실제 구현 참여 범위]</h4><p class="ph">예) 데이터 입력, 레벨 배치, 간단한 스크립트 수정</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><div class="no">03<span>.</span></div><div class="tt">DESIGN PROCESS</div><div class="bar"></div></div>
+    <div class="case">
+      <div class="step s1"><div class="n">STEP 01</div><h4>PROBLEM</h4><p>무엇이 문제였는지 적습니다.<br><span class="ph">예) 테스트에서 중반부 전투가 반복적이라는 의견이 많았다.</span></p></div>
+      <div class="step s2"><div class="n">STEP 02</div><h4>ANALYSIS</h4><p>원인을 어떻게 판단했는지 적습니다.<br><span class="ph">예) 적 패턴이 하나뿐이라 대응 방법이 고정되어 있었다.</span></p></div>
+      <div class="step s3"><div class="n">STEP 03</div><h4>SOLUTION</h4><p>무엇을 설계했는지 적습니다.<br><span class="ph">예) 적에게 상태별 패턴 2종을 추가하고 전조 동작을 넣었다.</span></p></div>
+      <div class="step s4"><div class="n">STEP 04</div><h4>RESULT</h4><p>테스트로 확인한 변화만 적습니다. 수치가 없으면 정성적으로.<br>예) 재테스트에서 "전투가 덜 지루하다"는 의견이 늘었다.</p></div>
+    </div>
+    <div class="flow">
+      <span class="label mono" style="margin:0 6px 0 0">System Flow</span>
+      <span class="node">[입력]</span><span class="arrow">→</span><span class="node">[판정]</span><span class="arrow">→</span><span class="node on">[핵심 시스템]</span><span class="arrow">→</span><span class="node">[보상]</span><span class="arrow">→</span><span class="node">[성장]</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><div class="no">04<span>.</span></div><div class="tt">DESIGN DOCUMENT</div><div class="bar"></div></div>
+    <div class="docs">
+      <div class="dcard"><div class="label mono">System</div><div class="fid">SYS-000</div><p>시스템 기획서 · 구조도 · 규칙 정의</p></div>
+      <div class="dcard"><div class="label mono">UI / UX</div><div class="fid">UIX-000</div><p>화면 흐름 · 와이어프레임</p></div>
+      <div class="dcard"><div class="label mono">Balance</div><div class="fid">BAL-000</div><p>데이터 테이블 · 수치 시트</p></div>
+    </div>
+    <div class="docinfo">
+      <div><div class="label mono">File ID</div><div>SYS-000</div></div>
+      <div><div class="label mono">Version</div><div>[1.0]</div></div>
+      <div><div class="label mono">Last Updated</div><div>[YYYY.MM.DD]</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><div class="no">05<span>.</span></div><div class="tt">DEVELOPMENT &amp; TEST</div><div class="bar"></div></div>
+    <table>
+      <tr><th>STAGE</th><th>CONTENT</th></tr>
+      <tr><td>개발 과정</td><td class="ph">예) 프로토타입 → 1차 플레이테스트 → 데이터 조정 → 2차 테스트</td></tr>
+      <tr><td>테스트 결과</td><td class="ph">[테스트 방법과 대상, 확인한 내용]</td></tr>
+      <tr><td>발견한 문제점</td><td class="ph">[문제와 근거]</td></tr>
+      <tr><td>개선 과정</td><td class="ph">[무엇을 바꿨고 어떻게 다시 확인했는지]</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="sh"><div class="no">06<span>.</span></div><div class="tt">RESULT &amp; RETROSPECTIVE</div><div class="bar"></div></div>
+    <div class="retro">
+      <div class="panel"><div class="label mono">Final Output</div><p class="ph">[빌드 · 영상 · 기획서 링크]</p></div>
+      <div class="panel"><div class="label mono">Result</div><p class="ph">[실제로 확인된 결과만]</p></div>
+      <div class="panel i"><div class="label mono">Regret</div><p class="ph">[아쉬웠던 점]</p></div>
+      <div class="panel i"><div class="label mono">Lesson</div><p class="ph">[배운 점과 다음 개선 방향]</p></div>
+    </div>
+  </section>
+
+  <div class="end mono"><span>Tactical Archive System · Ver 1.0</span><span>File 000 · End of Record</span></div>
+</div>
+</body>
+</html>
